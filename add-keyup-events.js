@@ -9,9 +9,12 @@ module.exports = function (element, eventHash) {
     element.addEventListener('keyup', function (e) {
         var eventName = events[e.which];
         var customEvent;
+        var canBubble = true;
+        var cancelable = false;
+
         if (eventName) {
             customEvent = document.createEvent('Event');
-            customEvent.initEvent(eventName);
+            customEvent.initEvent(eventName, canBubble, cancelable);
             element.dispatchEvent(customEvent);
         }
     }, false);
