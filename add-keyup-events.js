@@ -6,7 +6,7 @@
 // It should follow the format {keyvalue: 'customEventName'}
 module.exports = function (element, eventHash) {
     var events = eventHash || {13: 'enter', 27: 'esc'};
-    element.addEventListener('keyup', function (e) {
+    element.addEventListener('keyup.addKeyupEvents', function (e) {
         var eventName = events[e.which];
         var customEvent;
         if (eventName) {
